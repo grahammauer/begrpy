@@ -1,5 +1,5 @@
 # Matrix Transpose
-def transpose(matrix):
+def matrixTranspose(matrix):
 
 	"""
 	Transpose the elements of a 2-D list across the primary diagonal
@@ -44,7 +44,7 @@ def matrixMultiply(matrix1, matrix2):
     """
     
     # Transposing matrix2 for elt-by-elt multiplication
-    matrix2 = transpose(matrix2)
+    matrix2 = matrixTranspose(matrix2)
     
     # Multiplying matrices
     output = [[sum([i*j
