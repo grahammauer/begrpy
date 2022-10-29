@@ -44,7 +44,7 @@ def matrixMultiply(matrix1, matrix2):
     """
     
     # Transposing matrix2 for elt-by-elt multiplication
-    matrix2 = ss.transpose(matrix2)
+    matrix2 = transpose(matrix2)
     
     # Multiplying matrices
     output = [[sum([i*j
