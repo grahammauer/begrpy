@@ -24,6 +24,35 @@ def transpose(matrix):
 	return transpose
 
 # Matrix Multiplication
+def matrixMultiply(matrix1, matrix2):
+    """
+    Multiplies two matrices: matrix1 and matrix2.
+    
+    Parameters:
+    -----------
+        matrix1 : list
+            (n x m) 2-D list
+            
+        matrix2 : list
+            (m x k) 2-D list
+            
+    Returns:
+    --------
+        output : list
+            (n x k) 2-D list
+    
+    """
+    
+    # Transposing matrix2 for elt-by-elt multiplication
+    matrix2 = ss.transpose(matrix2)
+    
+    # Multiplying matrices
+    output = [[sum([i*j
+                    for i, j in zip(matrix1[r],matrix2[c])])
+               for c in range(len(matrix2))]
+              for r in range(len(matrix1))]
+    
+    return output
 
 # Vector Dot Product
 def vectorDotProduct(vector1, vector2):
