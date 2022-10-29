@@ -14,17 +14,12 @@ def transpose(matrix):
 	transpose : list
 		(m x n) 2-D list
 	"""
-
+	
+	# What is the shape of the matrix being transposed?
 	shape = [len(matrix[0]), len(matrix)]
 
-
-	transpose = [[0 for i in range(shape[0])] for j in range(shape[1])]
-
-	for i in range(shape[0]):
-
-		for j in range(shape[1]):
-
-			transpose[j][i] = matrix[i][j]
+	# Create a the transposed matrix. Flip the dimensions and then run through each original element and assign new positions.
+	transpose = [[matrix[i][j] for i in range(shape[0])] for j in range(shape[1])]
 
 	return transpose
 
