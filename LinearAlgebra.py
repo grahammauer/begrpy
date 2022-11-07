@@ -74,3 +74,44 @@ def vectorDotProduct(vector1, vector2):
 	"""
 
 	return matrixMultiply(vector1, matrixTranspose(vector2))
+
+def forwardSolve(matrix):
+    	'''
+    	Row reduces a dense matrix to an upper triangular matrix in O(n^3) time. 
+    
+    	Assumptions
+    	-----------
+    	- Matrix is one-to-one
+    	- Linearly independent rows
+    	- No '0' rows or columns
+    	- No '0's in pivot positions
+    
+    	Parameters
+   	 ----------
+   	 matrix : list 
+    	    (m x n) size 2-D list following assumptions above 
+    
+    	Returns
+    	-------
+    	Row reduced upper triangular form of matrix
+    	'''
+	# Identify the dimensions of the matrix
+	rows = len(matrix)
+	columns = len(matrix[0])
+
+	# Check for 0 rows and 0 columns later
+    
+    	# Assumes that the matrix is 1-1, if matrix is onto then take the min(columns, rows).
+	for count in range(columns - 1):
+
+		# For each valid row under the pivot
+		for r in range(rows - count - 1):
+
+			# Calculate the pivot modifier
+			m = matrix[r+count+1][count] / matrix[count][count]
+
+			for c in range(columns):
+
+				matrix[r+count+1][c] = matrix[r+count+1][c] - m * matrix[count][c]
+
+	return matrix
