@@ -19,7 +19,7 @@ def matrixTranspose(matrix):
 	shape = [len(matrix[0]), len(matrix)]
 
 	# Create a the transposed matrix. Flip the dimensions and then run through each original element and assign new positions.
-	transpose = [[matrix[i][j] for i in range(shape[0])] for j in range(shape[1])]
+	transpose = [[matrix[i][j] for i in range(shape[1])] for j in range(shape[0])]
 
 	return transpose
 
