@@ -179,6 +179,23 @@ def backwardSolve(matrix):
 
 # Gauss Jordan Elimination
 def GaussJordanElim(matrix):
+	'''
+	Take a matrix and reduce to row echelon form.
+
+	Assumptions
+	-----------
+	- Matrix of size (n, n+1)
+	- No '0' rows or columns
+
+	Parameters
+	----------
+	matrix : list
+		(m x n) size 2-D list following assumptions above
+
+	Returns
+	-------
+	Reduced row echelon form of the matrix
+	'''
 
 	gaussJordan = backwardSolve(forwardSolve(matrix))
 
