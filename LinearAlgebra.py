@@ -200,3 +200,46 @@ def GaussJordanElim(matrix):
 	gaussJordan = backwardSolve(forwardSolve(matrix))
 
 	return gaussJordan
+
+# Matrix inversion
+def matrixInversion(matrix):
+	'''
+	Take a matrix and find the inverse
+
+	Assumptions
+	-----------
+	- Matrix of size (n, n)
+	- No '0' rows or columns
+
+	Parameters
+	----------
+	matrix : list
+		(n x n) size 2-D list following assumptions above
+
+	Returns
+	-------
+	Inversion of the matrix
+	'''
+
+	# Identify the dimensions of the matrix
+	rows = len(matrix)
+	columns = len(matrix[0])
+
+	# Create an augmented matrix
+	matrixAugmented = [[0 for i in range(2 * columns)] for j in range(rows)]
+
+	for c in range(columns):
+
+		for r in range(rows):
+
+			matrixAugmented[r][c] = matrix[r][c]
+
+	for c in range(columns):
+
+		matrixAugmented[c][c + columns] = 1
+
+	matrix = forwardSolve(matrixAugmented)
+
+	inverseMatrix = [[matrixAugmented[r][c + columns] for c in range(columns)] for r in range(rows)]
+
+	return inverseMatrix
